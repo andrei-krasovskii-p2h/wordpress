@@ -136,11 +136,13 @@ img {
     white-space: nowrap;
     background-color: transparent;
     border: 0;
+    color: #000;
+    text-decoration: none;
     font-weight: 700;
     cursor: pointer
 }
 
-.nav-bar__btn.active:after {
+.active > .nav-bar__btn:after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -170,7 +172,8 @@ img {
     border-radius: 50px;
     cursor: pointer;
     font-weight: 700;
-    border: 0
+    border: 0;
+    text-decoration: none;
 }
 
 .inverse {

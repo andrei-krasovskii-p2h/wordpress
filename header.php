@@ -1,14 +1,12 @@
 <!doctype html>
 <html lang="">
 <head>
-    <meta charset="utf-8">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="">
-    <link rel="shortcut icon" href="/wp-content/themes/fed/assets/images/good-things-foundation-logo.png">
-    <title>Good Things Foundation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <?php do_action('wp_head'); ?>
+    <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/assets/images/good-things-foundation-logo.png">
+    <?php wp_head(); ?>
 </head>
 <body>
 <div class="container">
@@ -21,33 +19,26 @@
             <span class="search__text">Search</span>
         </div>
         <div class="pre-menu">
-            <a class="pre-menu__btn pre-menu__btn--secondary">Learn</a>
-            <a class="pre-menu__btn pre-menu__btn--primary">Donate</a>
+            <a href="/learn/" class="pre-menu__btn pre-menu__btn--secondary">Learn</a>
+            <a href="/donate/" class="pre-menu__btn pre-menu__btn--primary">Donate</a>
         </div>
     </div>
     <div class="head">
         <div class="logo">
-            <img class="logo__img" src="/wp-content/themes/fed/assets/images/good-things-foundation-logo.png" alt="Good Thinks Foundation">
+            <img class="logo__img" src="<?php bloginfo('template_url'); ?>/assets/images/good-things-foundation-logo.png" alt="Good Thinks Foundation">
         </div>
-        <ul class="nav-bar">
-            <li class="nav-bar__li">
-                <button class="nav-bar__btn active">Home</button>
-            </li>
-            <li class="nav-bar__li">
-                <button class="nav-bar__btn">What we do</button>
-            </li>
-            <li class="nav-bar__li">
-                <button class="nav-bar__btn">The digital divide</button>
-            </li>
-            <li class="nav-bar__li">
-                <button class="nav-bar__btn">Get involved</button>
-            </li>
-            <li class="nav-bar__li">
-                <button class="nav-bar__btn">Our network</button>
-            </li>
-            <li class="nav-bar__li">
-                <button class="nav-bar__btn">Insights</button>
-            </li>
-        </ul>
+
+        <?php
+        wp_nav_menu(
+            array(
+                'menu' => 'nav-menu',
+                'container' => '',
+                'theme_location' => 'nav-menu',
+                'items_wrap' => '<ul class="nav-bar">%3$s</ul>',
+                'add_li_class'  => 'nav-bar__li',
+                'add_link_class'  => 'nav-bar__btn'
+            )
+        );
+        ?>
     </div>
 </div>
